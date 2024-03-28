@@ -1,7 +1,7 @@
 # python-challenge-1
 # Module 2 Challenge
 
-The menu.py Python script simulates an ordering system for a variety food truck. Customers can select items from different categories, specify quantities, and review their orders. Here's a breakdown of the functionalities:
+This `menu.py` Python script simulates an ordering system for a variety food truck. Customers can select items from different categories, specify quantities, and review their orders. Here's a breakdown of the functionalities:
 
 ## Menu Dictionary
 
@@ -152,5 +152,13 @@ Item name                 | Price  | Quantity
 --------------------------|--------|----------  
 Burrito                   | $4.49  |     1  
 
-Total cost of the order: $4.49
+Total cost of the order: $4.49  
+  
+  
+## Credits 
+This code was written by [Richard Lankford](https://github.com/rwlankford) with assistance and review from **Rimi Sharma** and **Tyler B. Shubert**
+
+
+
+
 
