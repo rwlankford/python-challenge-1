@@ -27,27 +27,48 @@ To use this script:
 
 ## Example Usage
 
-# Run the script and follow the prompts
-# Example output:
-# Welcome to the variety food truck.
-# From which menu would you like to order?
-# 1: Snacks
-# 2: Meals
-# 3: Drinks
-# 4: Dessert
-# Type menu number: 2
-# You selected Meals
-# What Meals item would you like to order?
-# Item # | Item name                | Price
-# -------|--------------------------|-------
-# 1      | Burrito                  | $4.49
-# 2      | Teriyaki Chicken         | $9.99
-# ...
-# Please type the number you would like: 1
-# How many Burrito(s) would you like to order? 2
-# Would you like to keep ordering? (Y)es or (N)o y
-# ...
-# This is what we are preparing for you.
-# ...
-# Total cost of the order: $15.46
+Output of the script should look as follows:
+
+Welcome to the variety food truck.
+
+From which menu would you like to order?
+1. Snacks
+2. Meals
+3. Drinks
+4. Dessert
+
+```
+User Inputs:  2 (Meals) 
+```
+
+You selected Meals
+
+What Meals item would you like to order?
+
+Item # | Item name                | Price  
+-------|--------------------------|-------  
+1      | Burrito                  | $4.49  
+2      | Teriyaki Chicken         | $9.99  
+...
+
+Please type the number you would like:
+
+```
+User Inputs: 1 (Burrito)
+```
+How many <item name>s would you like to order?  
+```
+User Inputs: 1  
+```
+Would you like to keep ordering? (Y)es or (N)o  
+```
+User Inputs: N
+```
+This is what we are preparing for you.  
+
+Item name                 | Price  | Quantity  
+--------------------------|--------|----------  
+Burrito                   | $4.49  |     1  
+
+Total cost of the order: $4.49
 
