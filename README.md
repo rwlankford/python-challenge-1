@@ -1,7 +1,7 @@
 # python-challenge-1
 # Module 2 Challenge
 
-This Python script simulates an ordering system for a variety food truck. Customers can select items from different categories, specify quantities, and review their orders. Here's a breakdown of the functionalities:
+The menu.py Python script simulates an ordering system for a variety food truck. Customers can select items from different categories, specify quantities, and review their orders. Here's a breakdown of the functionalities:
 
 ## Menu Dictionary
 
@@ -10,13 +10,49 @@ The script contains a dictionary named `menu` which represents the food truck's 
 ## Ordering Process
 
 1. **Order List Setup**: An empty list named `customers_order` is created to store the customer's order details.
-2. **Order Placement**: The script launches with a greeting and prompts customers to order items continuously until they're done.
-3. **Menu Selection**: Customers are asked to select a menu category from the available options.
-4. **Item Selection**: After choosing a category, customers select a specific item by its number.
-5. **Quantity Selection**: Customers specify the quantity of the selected item they wish to order.
-6. **Order Confirmation**: Customers can continue ordering or finish their order.
-7. **Order Review**: Once the order is complete, the script displays the items ordered along with their prices and quantities.
-8. **Total Cost Calculation**: The total cost of the order is calculated and displayed.
+```python
+customers_order = []
+```
+2. **Order Placement**: The script launches with a greeting and prompts customers to chose the menu from which they would like to order.  This input is stored in the `menu_items` dictionary for later retrieval and the corresponding menu category is stored and  printed to the screen
+```python
+menu_items = {}
+
+for key in menu.keys():
+  print(f"{i}: {key}")
+  menu_items[i] = key
+```
+3. **Menu Selection**: Customers are asked to select a menu category from the available options which is converted to an integer and stored as `menu_selection` checked against the `menu_items` dictionary and stored as the variable `item_name`
+```python
+menu_selection = input("Please type the number you would like: ")
+
+if menu_selection.isdigit():
+menu_selection = int(menu_selection)
+
+if menu_selection in menu_items.keys():
+item_name = menu_items[menu_selection]["Item name"]
+```  
+4. **Item Selection**: After choosing a category, customers select a specific item by its number which is stored as `menu_selection`.  The `menu_selection` is then confirmed to be a number and converted to an integer.  `menu_selection` is then check against the keys in the `menu_items` dictionary and stored as `item_name`
+```python
+menu_selection = input("Please type the number you would like: ")
+
+if menu_selection.isdigit():
+  menu_selection = int(menu_selection)
+
+if menu_selection in menu_items.keys():
+  item_name = menu_items[menu_selection]["Item name"]
+```
+6. **Quantity Selection**: Customers specify the quantity of the selected item they wish to order.
+7. **Add to Order**: Customers selection and quantity are added to the order.
+```python
+customers_order.append({
+"Item name": menu_items[menu_selection]["Item name"],
+"Price": menu_items[menu_selection]["Price"],
+"Quantity": quantity
+})
+```     
+7. **Order Confirmation**: Customers can continue ordering or finish their order.
+8. **Order Review**: Once the order is complete, the script displays the items ordered along with their prices and quantities.
+9. **Total Cost Calculation**: The total cost of the order is calculated and displayed.
 
 ## How to Use
 
