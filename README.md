@@ -13,6 +13,10 @@ The script contains a dictionary named `menu` which represents the food truck's 
 ```python
 customers_order = []
 ```
+A loop is created to allow the customer to continue ordering as long as `place_order` is equal to `True`
+```python
+place_order = True
+```
 2. **Order Placement**: The script launches with a greeting and prompts customers to chose the menu from which they would like to order.  This input is stored in the `menu_items` dictionary for later retrieval and the corresponding menu category is stored and  printed to the screen
 ```python
 menu_items = {}
@@ -41,8 +45,17 @@ if menu_selection.isdigit():
 if menu_selection in menu_items.keys():
   item_name = menu_items[menu_selection]["Item name"]
 ```
-6. **Quantity Selection**: Customers specify the quantity of the selected item they wish to order.
-7. **Add to Order**: Customers selection and quantity are added to the order.
+5. **Quantity Selection**: Customers specify the `quantity` of the selected item they wish to order which is confirmed to be a number and stored as an integer. If it is not a number an error is returned and the `quantity` is set to `1` by default.
+```python
+quantity = input(f"How many {item_name}s would you like to order? ")
+
+if quantity.isdigit():
+  quantity=int(quantity)
+else:
+print(f'{quantity} is an invalid entry.  Only one item will be selected')
+quantity=1
+```  
+6. **Add to Order**: Customers selection and `quantity` are added to the `customers_order`.
 ```python
 customers_order.append({
 "Item name": menu_items[menu_selection]["Item name"],
@@ -50,9 +63,42 @@ customers_order.append({
 "Quantity": quantity
 })
 ```     
-7. **Order Confirmation**: Customers can continue ordering or finish their order.
-8. **Order Review**: Once the order is complete, the script displays the items ordered along with their prices and quantities.
-9. **Total Cost Calculation**: The total cost of the order is calculated and displayed.
+7. **Order Confirmation**: Customers are asked if they would like to continue ordering or finish their order.  Their input is required to be characters `Y/y` or `N/n` and stored as the varialbe `keep_ordering`.  The input is then check to ensure it the proper characters and then converted to lowercase to ensure consistency.  If the user is finished ordering `place_order` is set to `False` and the user is thanked for their order.  If the user entered invalid characters they are asked to re-enter.
+```python
+keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+
+if keep_ordering.lower() == 'y':
+  break
+
+elif keep_ordering.lower() == 'n':
+  place_order = False
+  print("Thank you for your order!")
+  break 
+
+else:
+  print("Invalid input. Please enter 'Y' or 'N'.")
+```
+8. **Order Review**: Once the order is complete the script converts and stores the `items` in `customer_order` to variables, calculates the length of each variable for spacing and displays the `item_name` ordered along with their `price` and `quantitiy`.
+```python
+for items in customers_order:
+    item_name = items["Item name"]
+    price = items["Price"]
+    quantity = items["Quantity"]
+
+    item_name_length = len(item_name)
+    price_length = len(str(price))
+    quantity_length = len(str(quantity))
+
+    item_name_spaces = " " * (26 - item_name_length)
+    price_spaces = " " * (6 - price_length)  
+    quantity_spaces = " " * (10 - quantity_length) 
+
+    print(f"{item_name}{item_name_spaces}| ${price}{price_spaces}| {quantity}{quantity_spaces}")
+```
+9. **Total Cost Calculation**: The 'total_cost` of the order is calculated and displayed.
+```python
+total_cost = sum(item["Price"] * item["Quantity"] for item in customers_order)
+```
 
 ## How to Use
 
