@@ -156,7 +156,7 @@ Total cost of the order: $4.49
   
   
 ## Credits 
-This code was written by [Richard Lankford](https://github.com/rwlankford) with assistance and review from **Rimi Sharma** and **Tyler B. Shubert**
+This code was written by [Richard Lankford](https://github.com/rwlankford/python-challenge-1/tree/main) with assistance and review from **Rimi Sharma** and **Tyler B. Shubert**
 
 
 
